@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pradeep — Projects</title>
-<meta name="description" content="Applications and tools built end-to-end by Pradeep.">
+<title>Prady — Projects</title>
+<meta name="description" content="Applications and tools built end-to-end by Pradeep Kumar Balakrishnan.">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -250,8 +250,8 @@
 
   <header>
     <div class="eyebrow mono">projects — pradyb</div>
-    <h1>Pradeep</h1>
-    <p class="lede">Full applications and developer tooling, built end to end — backend, on-device AI, native clients, CLIs, and the infrastructure that ships them.</p>
+    <h1>Prady</h1>
+    <p class="lede">Pradeep Kumar Balakrishnan — full applications and developer tooling, built end to end: backend, on-device AI, native clients, CLIs, and the infrastructure that ships them.</p>
     <div class="meta-row mono">
       <a href="mailto:pradeep.devlabs@gmail.com">pradeep.devlabs@gmail.com</a>
       <a href="https://github.com/pradyb" target="_blank" rel="noopener">github.com/pradyb</a>
@@ -352,8 +352,33 @@
         <span class="status">active</span>
       </div>
       <div class="entry-body">
-        <p>A terminal console for running several AI agents — different models, different providers — side by side in one session. Most CLI clients give you one model and a dropdown to switch; quorumdeck starts from the opposite premise, that the useful thing is what happens when a Claude agent, a GPT agent, and a local Llama agent answer the same question at once, and you act on the quorum rather than any single reply.</p>
-        <div class="stack-line mono"><b>Stack</b> — Python</div>
+        <p>A terminal console for running several AI agents — different models, different providers — side by side in one session. Most CLI clients give you one model and a dropdown to switch; quorumdeck starts from the opposite premise, that the useful thing is what happens when a Claude agent, a GPT agent, and a local Llama agent answer the same question at once, with tokens, latency, and cost shown next to each other so "which model for this" stops being a vibe.</p>
+
+        <div class="stats mono">
+          <div class="stat"><span class="n">5</span><span class="label">orchestration patterns</span></div>
+          <div class="stat"><span class="n">100+</span><span class="label">model backends via LiteLLM</span></div>
+        </div>
+
+        <dl class="features">
+          <div>
+            <dt>Patterns</dt>
+            <dd><code>single</code> · <code>fanout</code> · <code>judge</code> · <code>debate</code> · <code>pipeline</code> — same prompt run one, several, or staged ways, all working end to end.</dd>
+          </div>
+          <div>
+            <dt>Agents as config</dt>
+            <dd>A deck is a YAML file committed next to the code it's about — share a deck, not a screenshot. Credentials stay in the OS keychain, never in <code>agents.yaml</code>.</dd>
+          </div>
+          <div>
+            <dt>Cost control</dt>
+            <dd>Per-agent token/cost/wall-clock shown live; an optional hard <code>budget_usd</code> refuses the next turn once a deck's running total hits it.</dd>
+          </div>
+          <div>
+            <dt>Runs anywhere</dt>
+            <dd>Fully local decks against Ollama with no key and no network, or free multi-lab comparisons on OpenRouter's free tier with one key.</dd>
+          </div>
+        </dl>
+
+        <div class="stack-line mono"><b>Stack</b> — Python · LiteLLM</div>
         <div class="links"><a href="https://github.com/pradyb/quorumdeck" target="_blank" rel="noopener">Source →</a></div>
       </div>
     </div>
@@ -364,7 +389,27 @@
         <span class="status">active</span>
       </div>
       <div class="entry-body">
-        <p>Bulk GitHub operations across an entire organization: cut a release branch in 200 repositories, review every open PR your team filed this week, or find which repos still have branch protection disabled — one command instead of a shell loop over the API.</p>
+        <p>GitHub's own <code>gh</code> is repository-scoped by design. sgh is the other axis: every command takes an organization and fans out across all of its repositories concurrently — cut a release branch in 200 repos, review every open PR your team filed this week, or find which repos still have branch protection disabled, in one command instead of a shell loop over the API.</p>
+
+        <dl class="features">
+          <div>
+            <dt>Bulk git operations</dt>
+            <dd>Branches, tags, and pull requests — create, rename, delete, review, merge, close — across every repo at once, plus an interactive selector.</dd>
+          </div>
+          <div>
+            <dt>CI &amp; compliance</dt>
+            <dd>List, view, rerun, cancel and dispatch Actions workflow runs with live monitoring; inspect and update branch-protection rules org-wide.</dd>
+          </div>
+          <div>
+            <dt>Built for scale</dt>
+            <dd>Concurrent worker pool, rate-limit tracking, exponential backoff, circuit breaking — and <code>--dry-run</code> on everything destructive, because a bulk operation across an org is one flag away from a bulk incident.</dd>
+          </div>
+          <div>
+            <dt>Scriptable</dt>
+            <dd>Table, compact, or JSON output; shell completion for Bash/Zsh/Fish/PowerShell; an interactive TUI dashboard when you'd rather browse.</dd>
+          </div>
+        </dl>
+
         <div class="stack-line mono"><b>Stack</b> — Go</div>
         <div class="links"><a href="https://github.com/pradyb/sgh-cli" target="_blank" rel="noopener">Source →</a></div>
       </div>
