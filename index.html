@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pradeep — Projects</title>
+<meta name="description" content="Applications and tools built end-to-end by Pradeep.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #f5f4ef;
+    --panel:  #ffffff;
+    --line:   #dcd8ce;
+    --ink:    #1c211e;
+    --dim:    #5c655e;
+    --accent: #9a5f14;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0e1210;
+      --panel:  #151b18;
+      --line:   #2a322d;
+      --ink:    #e8ece8;
+      --dim:    #8b9891;
+      --accent: #d9a441;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 0 20px 90px;
+  }
+  .mono {
+    font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  }
+
+  main { max-width: 780px; margin: 0 auto; }
+
+  /* ---- header: file-manifest style ---- */
+  header {
+    padding: 56px 0 34px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(1.9rem, 5vw, 2.5rem);
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  header p.lede {
+    color: var(--dim);
+    max-width: 58ch;
+    margin: 0 0 22px;
+    font-size: 1.02rem;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-size: 0.85rem;
+    color: var(--dim);
+  }
+  .meta-row a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .meta-row a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---- section scaffolding ---- */
+  section { margin-top: 46px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 4px;
+  }
+  .section-head .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  .section-head h2 {
+    font-size: 1.05rem;
+    margin: 0;
+    font-weight: 600;
+  }
+  .section-note {
+    color: var(--dim);
+    font-size: 0.88rem;
+    margin: 6px 0 22px;
+    max-width: 62ch;
+  }
+
+  /* ---- entry: row, not a card ---- */
+  .entry {
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 6px 28px;
+  }
+  .entry:last-child { border-bottom: 1px solid var(--line); }
+
+  .entry-id {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .entry-id .name {
+    font-weight: 600;
+    font-size: 1.02rem;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    color: var(--dim);
+    width: fit-content;
+  }
+  .status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .status.dim::before { background: var(--dim); opacity: 0.6; }
+
+  .entry-body p {
+    margin: 0 0 12px;
+    max-width: 58ch;
+  }
+  .stack-line {
+    font-size: 0.8rem;
+    color: var(--dim);
+    margin-bottom: 12px;
+  }
+  .stack-line b { color: var(--ink); font-weight: 500; }
+
+  /* ---- stat strip: quantified specifics, not decoration ---- */
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 28px;
+    margin: 2px 0 16px;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat .n {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.05rem;
+  }
+  .stat .label { font-size: 0.72rem; color: var(--dim); letter-spacing: 0.02em; }
+
+  /* ---- shipped-feature groups ---- */
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 28px;
+    margin: 4px 0 16px;
+    padding: 16px 0 2px;
+    border-top: 1px dashed var(--line);
+  }
+  .features dt {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 6px;
+  }
+  .features dd {
+    margin: 0;
+    font-size: 0.87rem;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .features dd span { color: var(--dim); }
+  @media (max-width: 620px) {
+    .features { grid-template-columns: 1fr; }
+  }
+
+  .links { display: flex; gap: 18px; }
+  .links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .links a:hover { text-decoration: underline; }
+
+  @media (max-width: 620px) {
+    .entry { grid-template-columns: 1fr; }
+  }
+
+  /* ---- environment: plain text block, no repo status ---- */
+  .env-block {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 22px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .env-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 6px 28px;
+  }
+  .env-row .name { font-weight: 600; }
+  .env-row p { margin: 0; color: var(--dim); max-width: 58ch; }
+  @media (max-width: 620px) {
+    .env-row { grid-template-columns: 1fr; }
+  }
+
+  footer {
+    margin-top: 60px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    color: var(--dim);
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  footer a { color: var(--dim); }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="eyebrow mono">projects — pradyb</div>
+    <h1>Pradeep</h1>
+    <p class="lede">Full applications and developer tooling, built end to end — backend, on-device AI, native clients, CLIs, and the infrastructure that ships them.</p>
+    <div class="meta-row mono">
+      <a href="mailto:pradeep.devlabs@gmail.com">pradeep.devlabs@gmail.com</a>
+      <a href="https://github.com/pradyb" target="_blank" rel="noopener">github.com/pradyb</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <span class="tag mono">01</span>
+      <h2>Shipped products</h2>
+    </div>
+    <p class="section-note">Private codebases — full source stays closed, the working software doesn't.</p>
+
+    <div class="entry">
+      <div class="entry-id">
+        <div class="name">VaultMint</div>
+        <span class="status">live</span>
+      </div>
+      <div class="entry-body">
+        <p>Privacy-first personal finance app for Indian users. Extracts transactions from bank SMS and PDF statements using an LLM pipeline that runs entirely on-device via Ollama — no statement data ever leaves the machine, and every field is AES-256-GCM encrypted with per-user keys underneath.</p>
+
+        <div class="stats mono">
+          <div class="stat"><span class="n">10+</span><span class="label">banks · SMS parsing</span></div>
+          <div class="stat"><span class="n">80+</span><span class="label">banks · IFSC lookup</span></div>
+          <div class="stat"><span class="n">100+</span><span class="label">UPI handles recognised</span></div>
+          <div class="stat"><span class="n">200+</span><span class="label">MCC merchant categories</span></div>
+        </div>
+
+        <dl class="features">
+          <div>
+            <dt>Core ledger</dt>
+            <dd>AI-parsed SMS &amp; PDF statements, reason-grouped review queue with bulk confirm/reject, merchant-alias learning, self-improving categorisation, free-form tags, per-category budgets with rollover and 80%/100% over-budget alerts.</dd>
+          </div>
+          <div>
+            <dt>Automatic capture</dt>
+            <dd>iOS Shortcut drops bank SMS straight into the on-device pipeline — no Apple API, nothing over the network. IMAP inbox polling extracts statement PDFs and unlocks password-protected ones from data already on file.</dd>
+          </div>
+          <div>
+            <dt>Insight &amp; recurring</dt>
+            <dd>Deterministic recurring-transaction detection with next-charge prediction, cashflow trend and net-position tiles, credit-card fee-waiver progress, rewards summary, MoM category deltas.</dd>
+          </div>
+          <div>
+            <dt>India-specific</dt>
+            <dd>IFSC-based bank identification, UPI PSP recognition, ISO 18245 MCC mapping, India-only categories (Jewellery/Gold, Government, Religion/Charity), statement balance reconciliation to the rupee.</dd>
+          </div>
+        </dl>
+
+        <div class="stack-line mono"><b>Stack</b> — Java 21 · Spring Boot 4 · Spring AI · PostgreSQL · Redis 8 (cache + vector search) · Docling · SeaweedFS · Next.js 16 PWA</div>
+        <div class="links">
+          <a href="https://vault-mint.pradeep-devlabs.workers.dev/" target="_blank" rel="noopener">Visit site →</a>
+          <a href="https://vault-mint.pradeep-devlabs.workers.dev/demo/" target="_blank" rel="noopener">Try the demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-id">
+        <div class="name">Smart Contacts Hub</div>
+        <span class="status dim">macOS</span>
+      </div>
+      <div class="entry-body">
+        <p>A native macOS app for organizing, analyzing, and reconciling contacts across three ecosystems at once. Built on Clean Architecture with a strict MVVM split between domain, data, and presentation layers — no ViewModel doing double duty as a data mapper.</p>
+
+        <dl class="features">
+          <div>
+            <dt>Manage</dt>
+            <dd>Every contact in one place, filterable by company or by what's missing — no more spotting gaps by scrolling.</dd>
+          </div>
+          <div>
+            <dt>Reconcile</dt>
+            <dd>Compares and syncs across <span>Google · Microsoft · LinkedIn</span>, with duplicate detection before anything merges.</dd>
+          </div>
+          <div>
+            <dt>Understand</dt>
+            <dd>Built-in stats and insights across the whole contact base, plus upcoming events tied to specific people.</dd>
+          </div>
+          <div>
+            <dt>Take it with you</dt>
+            <dd>Export on demand, dashboard and settings tuned to how you actually work the list.</dd>
+          </div>
+        </dl>
+
+        <div class="stack-line mono"><b>Stack</b> — Swift · SwiftUI · Clean Architecture / MVVM</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="tag mono">02</span>
+      <h2>Open source</h2>
+    </div>
+    <p class="section-note">Public repos — source, issues, and releases on GitHub.</p>
+
+    <div class="entry">
+      <div class="entry-id">
+        <div class="name">quorumdeck</div>
+        <span class="status">active</span>
+      </div>
+      <div class="entry-body">
+        <p>A terminal console for running several AI agents — different models, different providers — side by side in one session. Most CLI clients give you one model and a dropdown to switch; quorumdeck starts from the opposite premise, that the useful thing is what happens when a Claude agent, a GPT agent, and a local Llama agent answer the same question at once, and you act on the quorum rather than any single reply.</p>
+        <div class="stack-line mono"><b>Stack</b> — Python</div>
+        <div class="links"><a href="https://github.com/pradyb/quorumdeck" target="_blank" rel="noopener">Source →</a></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-id">
+        <div class="name">sgh-cli</div>
+        <span class="status">active</span>
+      </div>
+      <div class="entry-body">
+        <p>Bulk GitHub operations across an entire organization: cut a release branch in 200 repositories, review every open PR your team filed this week, or find which repos still have branch protection disabled — one command instead of a shell loop over the API.</p>
+        <div class="stack-line mono"><b>Stack</b> — Go</div>
+        <div class="links"><a href="https://github.com/pradyb/sgh-cli" target="_blank" rel="noopener">Source →</a></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-id">
+        <div class="name">zsh-history-cleaner</div>
+        <span class="status dim">stable</span>
+      </div>
+      <div class="entry-body">
+        <p>Zero-dependency Go CLI that cleans up <code class="mono">~/.zsh_history</code>: deduplicates, strips typo'd commands (edit-distance match against known programs), drops noise below a length threshold, and can re-sort extended-history entries by timestamp. Always writes a timestamped backup before touching the file.</p>
+        <div class="stack-line mono"><b>Stack</b> — Go</div>
+        <div class="links"><a href="https://github.com/pradyb/zsh-history-cleaner" target="_blank" rel="noopener">Source →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="tag mono">03</span>
+      <h2>Environment</h2>
+    </div>
+    <p class="section-note">Personal dev environment, managed as code on both platforms I work from — private, no source browsing.</p>
+
+    <div class="env-block">
+      <div class="env-row">
+        <div class="name mono">dotfiles</div>
+        <p>macOS setup — shell (zsh), editor, and tool configuration, bootstrapped from a single script on a fresh machine.</p>
+      </div>
+      <div class="env-row">
+        <div class="name mono">windots</div>
+        <p>The same discipline on Windows, built around Nushell rather than a POSIX shell — kept in parallel with the macOS setup so either machine gets to a working state in minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mono">
+    <span>updated 2026</span>
+    <a href="mailto:pradeep.devlabs@gmail.com">pradeep.devlabs@gmail.com</a>
+  </footer>
+
+</main>
+</body>
+</html>
