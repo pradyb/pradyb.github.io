@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prady — Projects</title>
-<meta name="description" content="Applications and tools built end-to-end by Pradeep Kumar Balakrishnan.">
+<meta name="description" content="Applications and tools built end to end.">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,32 +116,10 @@
   }
   .entry:last-child { border-bottom: 1px solid var(--line); }
 
-  .entry-id {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
   .entry-id .name {
     font-weight: 600;
     font-size: 1.02rem;
   }
-  .status {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.72rem;
-    letter-spacing: 0.03em;
-    color: var(--dim);
-    width: fit-content;
-  }
-  .status::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-  .status.dim::before { background: var(--dim); opacity: 0.6; }
 
   .entry-body p {
     margin: 0 0 12px;
@@ -251,7 +229,7 @@
   <header>
     <div class="eyebrow mono">projects — pradyb</div>
     <h1>Prady</h1>
-    <p class="lede">Pradeep Kumar Balakrishnan — full applications and developer tooling, built end to end: backend, on-device AI, native clients, CLIs, and the infrastructure that ships them.</p>
+    <p class="lede">Full applications and developer tooling, built end to end: backend, on-device AI, native clients, CLIs, and the infrastructure that ships them.</p>
     <div class="meta-row mono">
       <a href="mailto:pradeep.devlabs@gmail.com">pradeep.devlabs@gmail.com</a>
       <a href="https://github.com/pradyb" target="_blank" rel="noopener">github.com/pradyb</a>
@@ -268,7 +246,6 @@
     <div class="entry">
       <div class="entry-id">
         <div class="name">VaultMint</div>
-        <span class="status">live</span>
       </div>
       <div class="entry-body">
         <p>Privacy-first personal finance app for Indian users. Extracts transactions from bank SMS and PDF statements using an LLM pipeline that runs entirely on-device via Ollama — no statement data ever leaves the machine, and every field is AES-256-GCM encrypted with per-user keys underneath.</p>
@@ -310,7 +287,6 @@
     <div class="entry">
       <div class="entry-id">
         <div class="name">Smart Contacts Hub</div>
-        <span class="status dim">macOS</span>
       </div>
       <div class="entry-body">
         <p>A native macOS app for organizing, analyzing, and reconciling contacts across three ecosystems at once. Built on Clean Architecture with a strict MVVM split between domain, data, and presentation layers — no ViewModel doing double duty as a data mapper.</p>
@@ -349,7 +325,6 @@
     <div class="entry">
       <div class="entry-id">
         <div class="name">quorumdeck</div>
-        <span class="status">active</span>
       </div>
       <div class="entry-body">
         <p>A terminal console for running several AI agents — different models, different providers — side by side in one session. Most CLI clients give you one model and a dropdown to switch; quorumdeck starts from the opposite premise, that the useful thing is what happens when a Claude agent, a GPT agent, and a local Llama agent answer the same question at once, with tokens, latency, and cost shown next to each other so "which model for this" stops being a vibe.</p>
@@ -386,7 +361,6 @@
     <div class="entry">
       <div class="entry-id">
         <div class="name">sgh-cli</div>
-        <span class="status">active</span>
       </div>
       <div class="entry-body">
         <p>GitHub's own <code>gh</code> is repository-scoped by design. sgh is the other axis: every command takes an organization and fans out across all of its repositories concurrently — cut a release branch in 200 repos, review every open PR your team filed this week, or find which repos still have branch protection disabled, in one command instead of a shell loop over the API.</p>
@@ -418,7 +392,6 @@
     <div class="entry">
       <div class="entry-id">
         <div class="name">zsh-history-cleaner</div>
-        <span class="status dim">stable</span>
       </div>
       <div class="entry-body">
         <p>Zero-dependency Go CLI that cleans up <code class="mono">~/.zsh_history</code>: deduplicates, strips typo'd commands (edit-distance match against known programs), drops noise below a length threshold, and can re-sort extended-history entries by timestamp. Always writes a timestamped backup before touching the file.</p>
