@@ -421,6 +421,33 @@
         <div class="links"><a href="https://github.com/pradyb/herdr-which-key" target="_blank" rel="noopener">Source →</a></div>
       </div>
     </div>
+
+    <div class="entry">
+      <div class="entry-id">
+        <div class="name">herdr-notify-router</div>
+      </div>
+      <div class="entry-body">
+        <p>Rules for herdr agent notifications: decide when an alert is worth sending and where it goes, instead of forwarding every status change to one channel. An agent going idle for a second doesn't need a ping — one still blocked five minutes later does.</p>
+
+        <dl class="features">
+          <div>
+            <dt>Rules, not a firehose</dt>
+            <dd>Alert only if an agent <em>stays</em> blocked for N seconds, skip the pane you're already watching, set quiet hours, and never repeat the same alert within a dedupe window.</dd>
+          </div>
+          <div>
+            <dt>Send it anywhere</dt>
+            <dd>Webhook (Slack, Discord, or your own JSON endpoint), <code>ntfy</code>, or a native desktop notification — including a custom app icon on macOS.</dd>
+          </div>
+          <div>
+            <dt>Shared policy, private channels</dt>
+            <dd>Commit a <code>.herdr/notify.toml</code> so a team agrees on what's worth alerting on, while each person's own sinks and quiet hours stay in their personal config.</dd>
+          </div>
+        </dl>
+
+        <div class="stack-line mono"><b>Stack</b> — Python (standard library only)</div>
+        <div class="links"><a href="https://github.com/pradyb/herdr-notify-router" target="_blank" rel="noopener">Source →</a></div>
+      </div>
+    </div>
   </section>
 
   <section>
