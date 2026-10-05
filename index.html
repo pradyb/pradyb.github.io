@@ -319,42 +319,6 @@
 
     <div class="entry">
       <div class="entry-id">
-        <div class="name">quorumdeck</div>
-      </div>
-      <div class="entry-body">
-        <p>A terminal console for running several AI agents — different models, different providers — side by side in one session. Most CLI clients give you one model and a dropdown to switch; quorumdeck starts from the opposite premise, that the useful thing is what happens when a Claude agent, a GPT agent, and a local Llama agent answer the same question at once, with tokens, latency, and cost shown next to each other so "which model for this" stops being a vibe.</p>
-
-        <div class="stats mono">
-          <div class="stat"><span class="n">5</span><span class="label">orchestration patterns</span></div>
-          <div class="stat"><span class="n">100+</span><span class="label">model backends via LiteLLM</span></div>
-        </div>
-
-        <dl class="features">
-          <div>
-            <dt>Patterns</dt>
-            <dd><code>single</code> · <code>fanout</code> · <code>judge</code> · <code>debate</code> · <code>pipeline</code> — same prompt run one, several, or staged ways, all working end to end.</dd>
-          </div>
-          <div>
-            <dt>Agents as config</dt>
-            <dd>A deck is a YAML file committed next to the code it's about — share a deck, not a screenshot. Credentials stay in the OS keychain, never in <code>agents.yaml</code>.</dd>
-          </div>
-          <div>
-            <dt>Cost control</dt>
-            <dd>Per-agent token/cost/wall-clock shown live; an optional hard <code>budget_usd</code> refuses the next turn once a deck's running total hits it.</dd>
-          </div>
-          <div>
-            <dt>Runs anywhere</dt>
-            <dd>Fully local decks against Ollama with no key and no network, or free multi-lab comparisons on OpenRouter's free tier with one key.</dd>
-          </div>
-        </dl>
-
-        <div class="stack-line mono"><b>Stack</b> — Python · LiteLLM</div>
-        <div class="links"><a href="https://github.com/pradyb/quorumdeck" target="_blank" rel="noopener">Source →</a></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-id">
         <div class="name">sgh-cli</div>
       </div>
       <div class="entry-body">
@@ -473,6 +437,42 @@
 
         <div class="stack-line mono"><b>Stack</b> — TypeScript (no dependencies)</div>
         <div class="links"><a href="https://github.com/pradyb/claude-mods" target="_blank" rel="noopener">Source →</a></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-id">
+        <div class="name">quorumdeck</div>
+      </div>
+      <div class="entry-body">
+        <p>A terminal console for running several AI agents — different models, different providers — side by side in one session. Most CLI clients give you one model and a dropdown to switch; quorumdeck starts from the opposite premise, that the useful thing is what happens when a Claude agent, a GPT agent, and a local Llama agent answer the same question at once, with tokens, latency, and cost shown next to each other so "which model for this" stops being a vibe.</p>
+
+        <div class="stats mono">
+          <div class="stat"><span class="n">5</span><span class="label">orchestration patterns</span></div>
+          <div class="stat"><span class="n">100+</span><span class="label">model backends via LiteLLM</span></div>
+        </div>
+
+        <dl class="features">
+          <div>
+            <dt>Patterns</dt>
+            <dd><code>single</code> · <code>fanout</code> · <code>judge</code> · <code>debate</code> · <code>pipeline</code> — same prompt run one, several, or staged ways, all working end to end.</dd>
+          </div>
+          <div>
+            <dt>Agents as config</dt>
+            <dd>A deck is a YAML file committed next to the code it's about — share a deck, not a screenshot. Credentials stay in the OS keychain, never in <code>agents.yaml</code>.</dd>
+          </div>
+          <div>
+            <dt>Cost control</dt>
+            <dd>Per-agent token/cost/wall-clock shown live; an optional hard <code>budget_usd</code> refuses the next turn once a deck's running total hits it.</dd>
+          </div>
+          <div>
+            <dt>Runs anywhere</dt>
+            <dd>Fully local decks against Ollama with no key and no network, or free multi-lab comparisons on OpenRouter's free tier with one key.</dd>
+          </div>
+        </dl>
+
+        <div class="stack-line mono"><b>Stack</b> — Python · LiteLLM</div>
+        <div class="links"><a href="https://github.com/pradyb/quorumdeck" target="_blank" rel="noopener">Source →</a></div>
       </div>
     </div>
   </section>
