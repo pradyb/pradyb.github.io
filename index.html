@@ -448,6 +448,33 @@
         <div class="links"><a href="https://github.com/pradyb/herdr-notify-router" target="_blank" rel="noopener">Source →</a></div>
       </div>
     </div>
+
+    <div class="entry">
+      <div class="entry-id">
+        <div class="name">claude-mods</div>
+      </div>
+      <div class="entry-body">
+        <p>A marketplace of small mods for Claude Code — plugins that run inside it and change how it behaves. Add the marketplace once, then install only the mods you want. Three so far: two guardrails and an alert router.</p>
+
+        <dl class="features">
+          <div>
+            <dt>Guardrails</dt>
+            <dd><code>safety-guard</code> blocks <code>rm -rf /</code>, force pushes, <code>git reset --hard</code>, <code>curl | sh</code> and access to secret files; <code>secret-scrub</code> masks API keys, GitHub and GitLab tokens and private keys in your prompt before they reach the model.</dd>
+          </div>
+          <div>
+            <dt>Alerts worth getting</dt>
+            <dd><code>notify-router</code> tells you when a turn is done, when Claude has been waiting on you for N seconds, or when the context window or a rate limit crosses a threshold — to a chime, a macOS notification, or <code>ntfy</code> on your phone, with quiet hours and dedupe.</dd>
+          </div>
+          <div>
+            <dt>Inspect before you install</dt>
+            <dd>A mod runs with your permissions, so each one is small, tested in CI, and open to <code>claude plugin validate</code>, which lists the events it handles and the calls it makes before you run it.</dd>
+          </div>
+        </dl>
+
+        <div class="stack-line mono"><b>Stack</b> — TypeScript (no dependencies)</div>
+        <div class="links"><a href="https://github.com/pradyb/claude-mods" target="_blank" rel="noopener">Source →</a></div>
+      </div>
+    </div>
   </section>
 
   <section>
